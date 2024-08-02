@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    volume.alpha.kubernetes.io/storage-class: default
+  labels:
+    app: gitlab-redis
+    app.kubernetes.io/instance: gitlab
+    chart: redis-0.9.0
+    heritage: Helm
+    release: gitlab
+  name: gitlab-redis
+  namespace: default
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
